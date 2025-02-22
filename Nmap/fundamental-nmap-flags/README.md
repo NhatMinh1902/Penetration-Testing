@@ -34,7 +34,7 @@ that are single, in ranges, or comma-separated like so:
 8. `-sU`: This flag specifies scanning **UDP** ports as opposed to **TCP**. When you use the `-p` command, by default, Nmap will assume you mean **TCP** port **X**.
     - if you are looking for the **IPMIv2** protocol, which can be hosted on either**TCP** or **UDP** port **623**. In this instance, you would want to make sure that you check both options, or you could potentially miss a critical vulnerability.
 
-**9.** `–open`: This flag filters the response and only shows you ports that respond as being “open” on the target hosts. This is a huge time saver and quality-of-life improvement.
+9. `–open`: This flag filters the response and only shows you ports that respond as being “open” on the target hosts. This is a huge time saver and quality-of-life improvement.
 
 10. `--reason`: This is a flag that most people have never heard of, but it can be really helpful in determining what is going on. It shows the reason why each port is being reported the way that it is. If you are seeing a lot of ports ope and they are all coming back Filtered, this is a great flag to add on and rescan the target. While it cannot magically change the status to open, it can display the type of packet that was received from the port when the connection was made:
 
