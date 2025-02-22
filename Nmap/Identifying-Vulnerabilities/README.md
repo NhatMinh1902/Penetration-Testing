@@ -13,7 +13,7 @@
 - Common Platform Enumeration(CPE) is a standardized way to name software applicat ons, operating systems, and hardware platforms. Nmap includes CPE output for service and OS detection.
 - **Structure of a CPE Name**
 
-     ```**Cpe:[cpe_version]:[ype]:[vendor]:[product]:[version]:[update]:[edition]:[language]**```
+     ```Cpe:[cpe_version]:[ype]:[vendor]:[product]:[version]:[update]:[edition]:[language]```
 
 - The main division of CPE names is in the <**ype**> field; this can take on only three values: 
     - a for applications.
