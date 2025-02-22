@@ -7,9 +7,9 @@
 
     ```nmap -A 10.0.0.5```
 
-    **There are a couple of things to note with -A, which are as follows:**
-        -It is redundant and provides more information than `-sV`. It means that there is no reason to combine these flags. The same goes for `-O`, which is operating system versioning; while that flag exists, it is rarely used, as `-A` is considered be a far better alternative.
-        -It is a much slower scan than `-sV` because it enumerates so much more information. That is why both `-sV` and `-A` are listed here. There will be times when the service versioning information is enough, and you need to speed over the additional information.
+- **There are a couple of things to note with -A, which are as follows:**
+    - It is redundant and provides more information than `-sV`. It means that there is no reason to combine these flags. The same goes for `-O`, which is operating system versioning; while that flag exists, it is rarely used, as `-A` is considered be a far better alternative.
+    - It is a much slower scan than `-sV` because it enumerates so much more information. That is why both `-sV` and `-A` are listed here. There will be times when the service versioning information is enough, and you need to speed over the additional information.
 
 3. `-T`: T stands for time; it is the speed at which the scan is conducted, and it comes in six variations, ranging from T0, which is extremely slow, to `T5`, which is extremely fast. Appropriately, the default of Nmap (if you do not specify otherwise) is `T3`, quite fast. I will typically use `T2` during most engagements that are not extremely large.
 
