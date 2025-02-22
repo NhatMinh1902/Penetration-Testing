@@ -9,7 +9,7 @@
 
 # Common Platform Enumeration (CPE) and Common Vulnerabilities and Exposures (CVE)
 
-- [CPE](https://nmap.org/book/output-formats-cpe.html).
+- [What is CPE?](https://nmap.org/book/output-formats-cpe.html).
 - Common Platform Enumeration(CPE) is a standardized way to name software applicat ons, operating systems, and hardware platforms. Nmap includes CPE output for service and OS detection.
 - **Structure of a CPE Name**
 
