@@ -26,7 +26,7 @@
     - Analyzing IP ID sampling
     - Analyzing service headers
 
-## common vulnerabilities and exposures (CVEs)
+## Common Vulnerabilities And Exposures (CVEs)
 
 - Vulnerabilities is another word that is used frequently in the information security industry and can have different meanings based on context. When discussing CVEs always consider the following definition of a vulnerability taken directly from [cve.org](https://www.cve.org/):
 - To gauge the legitimate impact of a CVE and to aid in prioritizing remediation efforts, many organizations will use what is called the Common Vulnerability Scoring System (**CVSS**). The **CVSS** is a method of qualitatively measuring the severity of a vulnerability from 0 (no impact) to 10 (critical). **CVSS** is owned and maintained by FIRST, which is a US-based non-profit organization focused on aiding security and incident response teams worldwide. While a 1 to 10 scoring range may seem simple, the calculation is actually quite complex and takes into account many aspects such as attack complexity, impact on the **CIA**, what privilege level is required for exploitation, and many more.
