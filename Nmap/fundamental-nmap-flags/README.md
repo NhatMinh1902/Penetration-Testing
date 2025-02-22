@@ -41,7 +41,8 @@ that are single, in ranges, or comma-separated like so:
     ```nmap -Pn 10.0.0.5 --reason```
 
 
-## Now we can start to utilize Nmap to dive into the hosts both collectively as well as individually. The strategy tend to be used for this is to first scan the entire target list, looking for ports typically open during this type of engagement.
+## Hand-on
+-  Now we can start to utilize Nmap to dive into the hosts both collectively as well as individually. The strategy tend to be used for this is to first scan the entire target list, looking for ports typically open during this type of engagement.
 
     ```Nmap -A -T2 --open -p 21,22,25,80,110,179,443,8080,8443 -iL targets.txt -oX results1.xml```
 
@@ -57,6 +58,7 @@ that are single, in ranges, or comma-separated like so:
 **-oX** | Directing the output to also be piped to the file **results1.xml**
 
 - Additionally, we strategically specified several individual ports with the `-p` flag:
+
 **Port** | **Protocol**
 ------------ | -------------
 21 |  FTP – File Transfer Protocol
