@@ -8,8 +8,8 @@
     ```nmap -A 10.0.0.5```
 
     **There are a couple of things to note with -A, which are as follows:**
-- It is redundant and provides more information than `-sV`. It means that there is no reason to combine these flags. The same goes for `-O`, which is operating system versioning; while that flag exists, it is rarely used, as `-A` is considered be a far better alternative.
-- It is a much slower scan than `-sV` because it enumerates so much more information. That is why both `-sV` and `-A` are listed here. There will be times when the service versioning information is enough, and you need to speed over the additional information.
+        -It is redundant and provides more information than `-sV`. It means that there is no reason to combine these flags. The same goes for `-O`, which is operating system versioning; while that flag exists, it is rarely used, as `-A` is considered be a far better alternative.
+        -It is a much slower scan than `-sV` because it enumerates so much more information. That is why both `-sV` and `-A` are listed here. There will be times when the service versioning information is enough, and you need to speed over the additional information.
 
 3. `-T`: T stands for time; it is the speed at which the scan is conducted, and it comes in six variations, ranging from T0, which is extremely slow, to `T5`, which is extremely fast. Appropriately, the default of Nmap (if you do not specify otherwise) is `T3`, quite fast. I will typically use `T2` during most engagements that are not extremely large.
 
@@ -25,14 +25,14 @@
 
 7. `-p`: P stands for Port. You can specify specific ports that you want to scan
 that are single, in ranges, or comma-separated like so:
-- -p 80 (only port 80)
-- -p 80-443 (every port between 80 and 443)
-- -p 80,440 (only ports 80 and 443)
+    - -p 80 (only port 80)
+    - -p 80-443 (every port between 80 and 443)
+    - -p 80,440 (only ports 80 and 443)
 
     You can also use `-F` (fast) to reduce from the top **1,000** to the top **100**, or use `–-allports` to scan all **65,535 ports**.
 
 8. `-sU`: This flag specifies scanning **UDP** ports as opposed to **TCP**. When you use the `-p` command, by default, Nmap will assume you mean **TCP** port **X**.
--  if you are looking for the **IPMIv2** protocol, which can be hosted on either**TCP** or **UDP** port **623**. In this instance, you would want to make sure that you check both options, or you could potentially miss a critical vulnerability.
+    - if you are looking for the **IPMIv2** protocol, which can be hosted on either**TCP** or **UDP** port **623**. In this instance, you would want to make sure that you check both options, or you could potentially miss a critical vulnerability.
 
 9. `–open`: This flag filters the response and only shows you ports that respond as being “open” on the target hosts. This is a huge time saver and quality-of-life improvement.
 
