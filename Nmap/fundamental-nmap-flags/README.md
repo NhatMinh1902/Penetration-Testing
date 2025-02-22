@@ -40,7 +40,7 @@ that are single, in ranges, or comma-separated like so:
 
     ```nmap -Pn 10.0.0.5 --reason```
 
-
+## Hand-on
 - Now we can start to utilize Nmap to dive into the hosts both collectively as well as individually. The strategy tend to be used for this is to first scan the entire target list, looking for ports typically open during this type of engagement.
 
     ```Nmap -A -T2 --open -p 21,22,25,80,110,179,443,8080,8443 -iL targets.txt -oX results1.xml```
@@ -55,6 +55,40 @@ that are single, in ranges, or comma-separated like so:
 **-p** | A numerical list of the ports to be scanned
 **-iL** | Supplying the targets list “**targets.txt**”
 **-oX** | Directing the output to also be piped to the file **results1.xml**
+
+- Additionally, we strategically specified several individual ports with the `-p` flag:
+
+**Port** | **Second Title** 
+------------ | -------------
+22 | SSH – Secure Shell
+25 | SMTP – Simple Mail Transfer Protocol
+80 | HTTP – Hypertext Transfer Protocol
+110 | POP3 – Post Office Protocol version 3
+179 | BGP – Border Gateway Protocol
+443 | HTTPS – Hypertext Transfer Protocol Secure
+8080 | Alternate port for HTTP
+8443 | Alternate port for HTTPS 
+
+- These ports can be logically put into three main categories to identify the mostcommonly seen systems that are externally exposed:
+    - Web Servers (80,443,8080,8443)
+    - Mail Servers (25,110)
+    - File Transfer Servers (21,22)
+    - Networking Misconfiguration (179)
+
+- As you comb through these results, there are a few key things that you want to be
+    - looking for that will help you identify the CPE of each endpoint:
+    - Specific operating system and version
+    - What the system is likely used for
+    - Specific services running on the ports and their associated versions
+
+- You will need to systematically determine what vulnerabilities (CVEs) are known that are associated with both the endpoint itself (operating system) and any of the services running on that endpoint. To this end, there are a few great resources that can help you along the way:
+
+**Resource** | **Purpose** 
+------------ | ------------- 
+https://www.cvedetails.com | This is a free-to-use repository of information on known CVEs, which allows you to search by the CVE ID, product title, vendor, or even vulnerability type.
+https://www.cisa.gov | The United States Cybersecurity Infrastructure and Security Agency has a robust database of known exploited vulnerabilities. Once you have identified a vulnerability through cvedetails.com or any other means, this is a great place to check and see if that vulnerability has been exploited in the wild. 
+https://www.exploit-db.com | This is a database of known exploits, which can be searched by title, system, or CVE ID. Once you have identified an applicable CVE and confirmed that it is being exploited in the wild, this is one area to look into the exploit code.
+
 
 
 
