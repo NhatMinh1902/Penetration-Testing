@@ -105,4 +105,17 @@ scan.
 - A default Nmap version scan (-sV) will be using a version-intensity rating equivalent to 7.
 - use the `--version-all` flag as a shorthand alias for “**version-intensity 9**”.
 
+### Case Study – Continuous Attack Surface MonitoringCase Study of a Small Business
+
+- First, they built a process with documentation, laying out a few very specific scans that they would run every other Friday. By establishing the process and meticulously documenting how it is meant to run, they were able to keep it regimented and effective.
+    - They scanned every subnet they had on their internal network, as opposed to just the IP addresses that they knew about.
+    - They scanned every externally accessible domain and asset the company owned for ports, services, and vulnerabilities.
+    - They would output the results to XML files, and analyze them for any week-to-week changes using Zenmap.
+
+- This is the scan that they used:
+
+    ```nmap -A -v -T2 –-open –-vulners.nse -iL [Internal or External Target List] -oX [month] [Internal or External]_nmap_results.xml```
+
+
+
 
