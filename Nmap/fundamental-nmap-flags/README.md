@@ -41,4 +41,21 @@ that are single, in ranges, or comma-separated like so:
     ```nmap -Pn 10.0.0.5 --reason```
 
 
+- Now we can start to utilize Nmap to dive into the hosts both collectively as well as individually. The strategy tend to be used for this is to first scan the entire target list, looking for ports typically open during this type of engagement.
+
+    ```Nmap -A -T2 --open -p 21,22,25,80,110,179,443,8080,8443 -iL targets.txt -oX results1.xml```
+
+- Let's break down what that scan is doing flag by flag:
+
+**Flag** | **Function** 
+------------ | ------------- 
+**-A** | Fingerprint the operating system and all services and versions
+**-T2** | Slow scanning speed
+**--open** | Only show results for ports that are returned in the open state
+**-p** | A numerical list of the ports to be scanned
+**-iL** | Supplying the targets list “**targets.txt**”
+**-oX** | Directing the output to also be piped to the file **results1.xml**
+
+
+
 
