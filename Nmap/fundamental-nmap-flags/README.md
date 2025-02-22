@@ -42,6 +42,7 @@ that are single, in ranges, or comma-separated like so:
 
 
 ## Hand-on
+### EX1: 
 -  Now we can start to utilize Nmap to dive into the hosts both collectively as well as individually. The strategy tend to be used for this is to first scan the entire target list, looking for ports typically open during this type of engagement.
 
     ```Nmap -A -T2 --open -p 21,22,25,80,110,179,443,8080,8443 -iL targets.txt -oX results1.xml```
@@ -91,6 +92,17 @@ https://www.cvedetails.com |  This is a free-to-use repository of information on
 https://www.cisa.gov |  The United States Cybersecurity Infrastructure and Security Agency has a robust database of known exploited vulnerabilities. Once you have identified a vulnerability through cvedetails.com or any other means, this is a great place to check and see if that vulnerability has been exploited in the wild.
 https://www.exploit-db.com |  This is a database of known exploits, which can be searched by title, system, or CVE ID. Once you have identified an applicable CVE and confirmed that it is being exploited in the wild, this is one area to look into the exploit code.
 
+### EX2: 
+- With the initial group of systems identified you will want to create a second list of targets to dig deeper into the ones that seem to be the most interesting in terms of having outdated services or operating systems. Separating these systems into a **targets2.txt** file, we can then take some of the restrictions off of the scan profile to dig deeper:
 
+    ```nmap -A --version-intensity 9 --allports --open -iL targets2.txt -oX results2.xml```
+
+- There are two additional flags: **version intensity** and **all ports**.
+    - the “**all ports**” flag simply directs Nmap to query every TCP port that exists
+    - The “**version-intensity**” flag however is slightly more nuanced. Version-intensity is an option that can be given a numerical value from **1** (least intense) to **9** (most intense), which will increase the likelihood of successfully versioning the service at the expense of taking longer to
+scan.
+
+- A default Nmap version scan (-sV) will be using a version-intensity rating equivalent to 7.
+- use the `--version-all` flag as a shorthand alias for “**version-intensity 9**”.
 
 
