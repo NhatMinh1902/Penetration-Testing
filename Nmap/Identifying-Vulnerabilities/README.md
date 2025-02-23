@@ -84,6 +84,83 @@ following 12 flags are designed to take your basic scans and bring them up to th
     ------ snip ------
     ```
 
+5.  `-Pn`: Conversely, to the previous flag, there will also be occasions where you do not want to conduct a ping scan. This becomes problematic in environments that specifically block ICMP traffic. During penetration tests, it is not uncommon to see initial reconnaissance scans come back with no live hosts due to a failure of Nmap to determine hosts were alive because there was no ICMP response. In these instances, it is prudent to disable ICMP and re-scan the targets; more often than not, this will return the expected results. The `-Pn` flag is used for exactly this purpose, to disable ICMP (ping) scans.
+
+6.  `-F`: Think of the `-F` as “Fast”, this is a flag that reduces the number of ports scanned from Nmap’s default of 1000 to the top 100. [100 most commonly seen ports and services](https://nmap.org/book/nmap-services.html). While this flag does substantially increase the speed compared to a base scan, it is important to note that very commonly there will be key ports missed. The best way to utilize this scan is as a way to determine which subnets or endpoints of the greater scope should be marked for additional analysis.
+
+7. `--top-ports #`: We have established that the default of Nmap is to scan the top 1000 ports, and you can use the -F flag to reduce that to the top 100. But what if you want to scan the top 25? Or 50? Or 1000? That is where the `--top-ports` flag comes in; this allows you to specify the exact number to scan, which can help provide a good balance between speed and depth. the most common specification for this flag seems to be `--top-ports 2500`.
+
+8. `--version-intensity #`: service version could be abled via the `-sV` command, but additional nuance can be added by specifying the intensity of that versioning effort between **0** and **9**. This is done by sending a series of probes with assigned values to all identified open ports in an attempt to determine the service running on them. The default value of `-sV` is “**7**”. So, if your objective is to return results quicker, select a lower number, and if you are trying to get a more accurate fingerprint, select the higher value:
+    ```
+    nmap -sV --version-intensity 5 10.2.0.6
+    ```
+
+9. ` --version-light`: This flag is simply an alias for `--version-intensity 2`.
+It is a very fast way to conduct scanning when you are less interested in the
+exact fingerprint of specific services.
+
+10. `--version-all`: This is an alias for `–-version-intensity 9`, which will make every effort available to Nmap (outside of NSE scripts) to identify the exact version of services. This level of specificity of course comes with the inherent drawback that it will take significantly longer to complete the scan. It is not recommended to use this flag against a scope larger than a **/24** subnet, as it will take an egregious amount of time.
+
+11. `--max-os-tries #`: When Nmap conducts operating system identification, it will by default attempt 5 times to determine the exact OS. By specifying a lower value, you can increase the speed of the scan by reducing the attempts to fingerprint the operating system. Alternatively, you can also increase the tries beyond the default of 5 to attempt to better identify the endpoint.
+- **the use case of specifying a --max-ostries value greater than 5 is very rarely done**
+
+12. `--exclude-ports #,#`: Many endpoint detection agents, such as SentielOne, CrowdStirke Falcon, and Windows Defender, tend to be very attuned to specific ports being probed such as port **22 (SSH)**, and **445 (SMB)**. This flag lets you simply exclude those ports from being scanned, which in some cases is enough to remain under the noise floor in an environment.
+
+## Exploring the Nmap Scripting Engine
+
+- The Nmap Scripting Engine is among the most powerful components of Nmap due to its versatility. Written in the Lua scripting language, these scripts amplify Nmap to be able to fingerprint more specific systems, perform more nuanced scans, exploit known vulnerabilities, and even enumerate firewall rules.
+
+- To list them on your Kali machine, simply use the following command:
+
+    ```
+    ls -l /usr/share/nmap/scripts
+    ---------- snip ----------
+    -rw-r--r-- 1 root root  2835 Jan  3 15:56 dpap-brute.nse
+    -rw-r--r-- 1 root root  5805 Jan  3 15:56 drda-brute.nse
+    -rw-r--r-- 1 root root  3796 Jan  3 15:56 drda-info.nse
+    -rw-r--r-- 1 root root  7477 Jan  3 15:56 duplicates.nse
+    -rw-r--r-- 1 root root  5855 Jan  3 15:56 eap-info.nse
+    -rw-r--r-- 1 root root 57881 Jan  3 15:56 enip-info.nse
+    -rw-r--r-- 1 root root  1716 Jan  3 15:56 epmd-info.nse
+    -rw-r--r-- 1 root root  2564 Jan  3 15:56 eppc-enum-processes.nse
+    -rw-r--r-- 1 root root  3910 Jan  3 15:56 fcrdns.nse
+    -rw-r--r-- 1 root root  1083 Jan  3 15:56 finger.nse
+    -rw-r--r-- 1 root root  4183 Jan  3 15:56 fingerprint-strings.nse
+    -rw-r--r-- 1 root root 29093 Jan  3 15:56 firewalk.nse
+    -rw-r--r-- 1 root root  8887 Jan  3 15:56 firewall-bypass.nse
+    ---------- snip ---------
+    ```
+- You can then explore any of them by printing out the file, either via the cat command or with a text editor (nano, vi, vim, and so on):
+
+    ```
+    cat /usr/share/nmap/scripts/address-info.nse
+    local datafiles = require "datafiles"
+    local nmap = require "nmap"
+    local stdnse = require "stdnse"
+    local string = require "string"
+    local table = require "table"
+
+    description = [[
+    Shows extra information about IPv6 addresses, such as embedded MAC or IPv4 addrsses when available.
+
+    Some IP address formats encode extra information; for example some IPv6
+    addresses encode an IPv4 address or MAC address. This script can decode
+    these address formats:
+    * IPv4-compatible IPv6 addresses,
+    * IPv4-mapped IPv6 addresses,
+    * Teredo IPv6 addresses,
+    * 6to4 IPv6 addresses,
+    * IPv6 addresses using an EUI-64 interface ID,
+    * IPv4-embedded IPv6 addresses,
+    * IPv4-translated IPv6 addresses and
+    * ISATAP Modified EUI-64 IPv6 addresses.
+    ```
+
+- 
+
+
+
+
 
 
 
