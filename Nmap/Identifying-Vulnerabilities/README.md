@@ -62,7 +62,7 @@ following 12 flags are designed to take your basic scans and bring them up to th
     http-brute
     Categories: intrusive brute
     https://nmap.org/nsedoc/scripts/http-brute.html
-    Performs brute force password auditing against http basic, digest and ntlm a    uthentication.
+    Performs brute force password auditing against http basic, digest and ntlm a uthentication.
 
     This script uses the unpwdb and brute libraries to perform password
     guessing. Any successful guesses are stored in the nmap registry, using
