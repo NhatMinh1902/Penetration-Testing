@@ -67,7 +67,6 @@ https://nmap.org/nsedoc/scripts/http-brute.html
   This script uses the unpwdb and brute libraries to perform password
   guessing. Any successful guesses are stored in the nmap registry, using
   the creds library, for other scripts to use.
-
     ```
 
 3. `-6`: While the vast majority of the time on penetration tests, you are working with IPv4, there is a chance that you will need to scan a specific IPv6 address.
