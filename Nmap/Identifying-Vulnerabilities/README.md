@@ -59,14 +59,14 @@ following 12 flags are designed to take your basic scans and bring them up to th
     nmap --script-help http-brute.nse
     Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-22 20:11 EST
 
-http-brute
-Categories: intrusive brute
-https://nmap.org/nsedoc/scripts/http-brute.html
-  Performs brute force password auditing against http basic, digest and ntlm authentication.
+    http-brute
+    Categories: intrusive brute
+    https://nmap.org/nsedoc/scripts/http-brute.html
+    Performs brute force password auditing against http basic, digest and ntlm a    uthentication.
 
-  This script uses the unpwdb and brute libraries to perform password
-  guessing. Any successful guesses are stored in the nmap registry, using
-  the creds library, for other scripts to use.
+    This script uses the unpwdb and brute libraries to perform password
+    guessing. Any successful guesses are stored in the nmap registry, using
+    the creds library, for other scripts to use.
     ```
 
 3. `-6`: While the vast majority of the time on penetration tests, you are working with IPv4, there is a chance that you will need to scan a specific IPv6 address.
