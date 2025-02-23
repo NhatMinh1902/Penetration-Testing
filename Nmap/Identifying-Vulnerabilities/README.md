@@ -38,6 +38,59 @@
 - To get additional insight into what the script does before running it, using the `–script-help` command is extremely helpful.
 
     ```
-        nmap --script-help vulners.nse
+     nmap --script-help vulners.nse
     ```
+- the **vulners.nse** script is classified into the categories **vuln, safe, and external**.
+
+## Intermediate Nmap Flags
+
+- **The
+following 12 flags are designed to take your basic scans and bring them up to the next level by adding more capabilities and nuanced control over how they operate:**
+
+1. `--script`: Among the most powerful features of Nmap is the **Nmap Scripting Engine (NSE)**. We have seen a brief display of the different capabilities of NSE scripts already when we analyzed vulnerabilities using the **vulners.nse** script.
+
+    ```
+    nmap --script http-brute.nse 10.0.2.6
+    ```
+
+2. `--script-help`: to explore the expansive base of scripts. The `--script-help` command enables you to do just that by outputting information regarding what the particular scripts do without having to launch them.
+
+    ```
+    nmap --script-help http-brute.nse
+    Starting Nmap 7.95 ( https://nmap.org ) at 2025-02-22 20:11 EST
+
+http-brute
+Categories: intrusive brute
+https://nmap.org/nsedoc/scripts/http-brute.html
+  Performs brute force password auditing against http basic, digest and ntlm authentication.
+
+  This script uses the unpwdb and brute libraries to perform password
+  guessing. Any successful guesses are stored in the nmap registry, using
+  the creds library, for other scripts to use.
+
+    ```
+
+3. `-6`: While the vast majority of the time on penetration tests, you are working with IPv4, there is a chance that you will need to scan a specific IPv6 address.
+
+4. `-sn`: During default scanning one of the initial techniques used by Nmap is ICMP probes. These probes are extremely common and are used by Nmap to help ascertain if a host is alive or not. Very simply, if the host replies to the ICMP probe (also known as a ping), then Nmap will recognize that host as alive; if not, it will move on.This is commonly known as a ping sweep and is used for large-scope host discovery.
+
+    ```
+    nmap -sn 192.168.0.0/24
+    ------ snip ------
+    Nmap scan report for 192.168.0.1
+    Host is up (0.00013s latency).
+    Nmap scan report for 192.168.0.2
+    Host is up (0.00033s latency).
+    Nmap scan report for 192.168.0.3
+    ------ snip ------
+    ```
+
+
+
+
+
+
+
+
+
 
