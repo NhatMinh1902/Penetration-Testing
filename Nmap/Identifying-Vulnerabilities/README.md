@@ -154,9 +154,12 @@ exact fingerprint of specific services.
     * IPv4-embedded IPv6 addresses,
     * IPv4-translated IPv6 addresses and
     * ISATAP Modified EUI-64 IPv6 addresses.
+    ----------- snip ---------
     ```
 
-- 
+- **10 that are most often used when conducting enterprise penetration tests of multibillion dollar corporations:**
+
+1. p
 
 
 
