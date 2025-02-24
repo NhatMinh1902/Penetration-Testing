@@ -76,7 +76,7 @@
 
 - **NOTE**: [Cyber-Judo.com on Advanced Nmap Techniques](https://cyber-judo.com/advanced-nmap-techniques)
 
-- More often, true success leading to a cascading compromise within a network environment comes from identifying the vulnerabilities that stem from misconfigurations, inherently flawed protocols, and significant technical debt.
+- More often, true success leading to a cascading compromise within a network environment comes from identifying the vulnerabilities that stem from [misconfigurations](https://github.com/NhatMinh1902/Penetration-Testing/blob/main/Nmap/Identifying-Vulnerabilities/misconfigurations.md), [inherently flawed protocols](https://github.com/NhatMinh1902/Penetration-Testing/blob/main/Nmap/Identifying-Vulnerabilities/inherently-flawed-protocols.md), and [significant technical debt](https://github.com/NhatMinh1902/Penetration-Testing/blob/main/Nmap/Identifying-Vulnerabilities/technical-debt.md).
 
 
 
